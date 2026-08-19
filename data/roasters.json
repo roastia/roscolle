@@ -101,5 +101,41 @@
     "shippingSpeed": "毎週火曜・金曜に焙煎し、翌日発送",
     "roasterMessage": "",
     "registeredAt": "2026-08-10"
+  },
+  {
+    "id": "roaster_0004",
+    "name": "テスト焙煎所",
+    "ecUrl": "http://test",
+    "sns": {
+      "type": "instagram",
+      "handle": "@testaka"
+    },
+    "photo": "images/roasters/roaster_0004.jpg",
+    "description": "ふぁ",
+    "roastLevel": {
+      "min": 1,
+      "max": 5
+    },
+    "flavorTags": [
+      "fruity",
+      "nutty_choco",
+      "spicy"
+    ],
+    "priceRange": {
+      "min": null,
+      "max": null,
+      "unit": "100g"
+    },
+    "shipping": {
+      "freeThreshold": 200
+    },
+    "subscription": true,
+    "giftWrapping": true,
+    "flagshipProduct": "エチオピア",
+    "trialPack": true,
+    "shippingSpeed": "7日いない",
+    "roasterPhoto": "images/roasters/roaster_0004_roaster.jpg",
+    "roasterMessage": "ふぁ",
+    "registeredAt": "2026-08-20"
   }
 ]
