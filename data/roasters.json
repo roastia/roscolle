@@ -111,7 +111,7 @@
       "handle": "@testaka"
     },
     "photo": "images/roasters/roaster_0004.jpg",
-    "description": "おいおい",
+    "description": "gamm",
     "roastLevel": {
       "min": 1,
       "max": 5
@@ -123,8 +123,8 @@
     ],
     "priceRange": {
       "max": null,
-      "unit": "100g",
-      "min": null
+      "min": null,
+      "unit": "100g"
     },
     "shipping": {
       "freeThreshold": 200
