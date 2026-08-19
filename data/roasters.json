@@ -122,9 +122,9 @@
       "spicy"
     ],
     "priceRange": {
-      "max": null,
       "unit": "100g",
-      "min": null
+      "min": null,
+      "max": null
     },
     "shipping": {
       "freeThreshold": 200
