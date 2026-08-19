@@ -123,8 +123,8 @@
     ],
     "priceRange": {
       "unit": "100g",
-      "min": null,
-      "max": null
+      "max": null,
+      "min": null
     },
     "shipping": {
       "freeThreshold": 200
