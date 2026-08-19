@@ -105,13 +105,13 @@
   {
     "id": "roaster_0004",
     "name": "テスト焙煎所",
-    "ecUrl": "http://test",
+    "ecUrl": "http://testtest",
     "sns": {
       "type": "instagram",
       "handle": "@testaka"
     },
     "photo": "images/roasters/roaster_0004.jpg",
-    "description": "ふぁ",
+    "description": "なめんな",
     "roastLevel": {
       "min": 1,
       "max": 5
@@ -122,9 +122,9 @@
       "spicy"
     ],
     "priceRange": {
-      "min": null,
+      "unit": "100g",
       "max": null,
-      "unit": "100g"
+      "min": null
     },
     "shipping": {
       "freeThreshold": 200
