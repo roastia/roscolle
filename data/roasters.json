@@ -122,16 +122,16 @@
       "spicy"
     ],
     "priceRange": {
-      "max": null,
+      "unit": "100g",
       "min": null,
-      "unit": "100g"
+      "max": null
     },
     "shipping": {
       "freeThreshold": 200
     },
     "subscription": true,
     "giftWrapping": true,
-    "flagshipProduct": "エチオピア",
+    "flagshipProduct": "グアテマラ",
     "trialPack": true,
     "shippingSpeed": "1日いない",
     "roasterPhoto": "images/roasters/roaster_0004_roaster.jpg",
