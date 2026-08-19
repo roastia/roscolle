@@ -122,8 +122,8 @@
       "spicy"
     ],
     "priceRange": {
-      "unit": "100g",
       "max": null,
+      "unit": "100g",
       "min": null
     },
     "shipping": {
@@ -133,7 +133,7 @@
     "giftWrapping": true,
     "flagshipProduct": "エチオピア",
     "trialPack": true,
-    "shippingSpeed": "7日いない",
+    "shippingSpeed": "1日いない",
     "roasterPhoto": "images/roasters/roaster_0004_roaster.jpg",
     "roasterMessage": "すごく頑張って明日",
     "registeredAt": "2026-08-20"
