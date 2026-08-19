@@ -111,7 +111,7 @@
       "handle": "@testaka"
     },
     "photo": "images/roasters/roaster_0004.jpg",
-    "description": "なめんな",
+    "description": "おいおい",
     "roastLevel": {
       "min": 1,
       "max": 5
@@ -122,8 +122,8 @@
       "spicy"
     ],
     "priceRange": {
-      "unit": "100g",
       "max": null,
+      "unit": "100g",
       "min": null
     },
     "shipping": {
@@ -135,7 +135,7 @@
     "trialPack": true,
     "shippingSpeed": "7日いない",
     "roasterPhoto": "images/roasters/roaster_0004_roaster.jpg",
-    "roasterMessage": "ふぁ",
+    "roasterMessage": "すごく頑張って明日",
     "registeredAt": "2026-08-20"
   }
 ]
