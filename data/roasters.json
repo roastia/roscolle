@@ -1,7 +1,7 @@
 [
   {
     "id": "roaster_0001",
-    "name": "ROSCOLLE DEMO 01????????",
+    "name": "ROSCOLLE DEMO 01｜余白航路焙煎所",
     "ecUrl": "https://example.com/roscolle-demo/yoha-kouro",
     "sns": {
       "type": "instagram",
@@ -9,7 +9,7 @@
     },
     "photo": "images/roasters/roaster_0001.jpg",
     "roasterPhoto": "images/roasters/roaster_0001_roaster.jpg",
-    "description": "??????????????????????????????????????",
+    "description": "果実を思わせる明るさと、軽やかな余韻を大切にする小さなオンライン焙煎所です。",
     "roastLevel": {
       "min": 1,
       "max": 2
@@ -27,15 +27,15 @@
     },
     "subscription": true,
     "giftWrapping": false,
-    "flagshipProduct": "?????????????",
+    "flagshipProduct": "空想エチオピア・ナチュラル",
     "trialPack": true,
-    "shippingSpeed": "???2?4?????????",
-    "roasterMessage": "?????????????????????????????????",
+    "shippingSpeed": "注文後2〜4日以内に焙煎・発送",
+    "roasterMessage": "朝の一杯が少し楽しみになるような、明るく澄んだ味を目指しています。",
     "registeredAt": "2026-08-19"
   },
   {
     "id": "roaster_0002",
-    "name": "ROSCOLLE DEMO 02????????",
+    "name": "ROSCOLLE DEMO 02｜灯点珈琲製作室",
     "ecUrl": "https://example.com/roscolle-demo/touten",
     "sns": {
       "type": "instagram",
@@ -43,7 +43,7 @@
     },
     "photo": "images/roasters/roaster_0002.jpg",
     "roasterPhoto": "images/roasters/roaster_0002_roaster.jpg",
-    "description": "????????????????????????????????????",
+    "description": "チョコレートやローストナッツのような、丸みのある甘さを届ける焙煎室です。",
     "roastLevel": {
       "min": 3,
       "max": 4
@@ -61,15 +61,15 @@
     },
     "subscription": false,
     "giftWrapping": true,
-    "flagshipProduct": "????????",
+    "flagshipProduct": "夜更けのブレンド",
     "trialPack": false,
-    "shippingSpeed": "???3?????????",
-    "roasterMessage": "???????????????????????????????",
+    "shippingSpeed": "注文後3日以内を目安に発送",
+    "roasterMessage": "甘い余韻と、毎日飲み続けられるバランスを一番大切にしています。",
     "registeredAt": "2026-08-15"
   },
   {
     "id": "roaster_0003",
-    "name": "ROSCOLLE DEMO 03?NOKT 17 ROAST WORKS",
+    "name": "ROSCOLLE DEMO 03｜NOKT 17 ROAST WORKS",
     "ecUrl": "https://example.com/roscolle-demo/nokt17",
     "sns": {
       "type": "x",
@@ -77,7 +77,7 @@
     },
     "photo": "images/roasters/roaster_0003.jpg",
     "roasterPhoto": "",
-    "description": "??????????????????????????????????????",
+    "description": "深いコクの中に、カカオとスパイスの輪郭を感じる力強いコーヒーを揃えています。",
     "roastLevel": {
       "min": 4,
       "max": 5
@@ -98,44 +98,8 @@
     "giftWrapping": true,
     "flagshipProduct": "MIDNIGHT 17",
     "trialPack": true,
-    "shippingSpeed": "????????????????",
+    "shippingSpeed": "毎週火曜・金曜に焙煎し、翌日発送",
     "roasterMessage": "",
     "registeredAt": "2026-08-10"
-  },
-  {
-    "id": "roaster_0004",
-    "name": "??????",
-    "ecUrl": "http://test",
-    "sns": {
-      "type": "instagram",
-      "handle": "@testaka"
-    },
-    "photo": "images/roasters/roaster_0004.jpg",
-    "description": "??",
-    "roastLevel": {
-      "min": 1,
-      "max": 5
-    },
-    "flavorTags": [
-      "fruity",
-      "nutty_choco",
-      "spicy"
-    ],
-    "priceRange": {
-      "min": null,
-      "max": null,
-      "unit": "100g"
-    },
-    "shipping": {
-      "freeThreshold": 1000
-    },
-    "subscription": true,
-    "giftWrapping": true,
-    "flagshipProduct": "?????",
-    "trialPack": true,
-    "shippingSpeed": "7????",
-    "roasterPhoto": "images/roasters/roaster_0004_roaster.jpg",
-    "roasterMessage": "?f",
-    "registeredAt": "2026-08-20"
   }
 ]
