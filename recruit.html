@@ -539,18 +539,139 @@
       <p>難しい入力は必要ありません。わからない項目は空欄のままで大丈夫です。</p>
     </div>
 
-    <div class="form-card" style="text-align:center;">
-      <p style="margin-bottom:8px; font-weight:600; font-size:15.5px;">店名・ECサイトURL・写真など、必要な情報を入力するだけ</p>
-      <p class="hint" style="margin-bottom:24px;">入力時間の目安は3分程度です。わからない項目は空欄のままで送信できます。</p>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLScHdDoZZqLFL5LcEd_o7H_b8C5ICIZnxl5oBM8imOaWwXJpPA/viewform"
-         target="_blank" rel="noopener"
-         class="btn btn-primary form-submit" style="display:inline-flex; text-decoration:none;">
-        登録フォームを開く
-      </a>
-      <p class="form-note">送信後、内容を確認のうえ担当より折り返しご連絡します。</p>
+    <form class="form-card" id="entryForm">
+      <div class="field">
+        <label>店名<span class="req">必須</span></label>
+        <input type="text" id="f_name" placeholder="例）〇〇珈琲焙煎所" required>
+      </div>
+      <div class="field">
+        <label>ECサイトURL<span class="req">必須</span></label>
+        <input type="url" id="f_ecUrl" placeholder="https://" required>
+      </div>
+      <div class="field">
+        <label>SNSアカウント（Instagram または X）<span class="req">必須</span></label>
+        <input type="text" id="f_sns" placeholder="@your_account" required>
+      </div>
+      <div class="field">
+        <label>連絡先メールアドレス<span class="req">必須</span></label>
+        <input type="email" id="f_email" placeholder="you@example.com" required>
+      </div>
+      <div class="field">
+        <label>写真（ロゴまたは商品写真）<span class="req">必須</span></label>
+        <input type="file" id="f_photo" accept="image/*" required>
+        <p class="hint">1枚で構いません。選択するだけで自動的にアップロードされます。</p>
+      </div>
+      <div class="field">
+        <label>ひとこと紹介文<span class="hint" style="margin-left:6px;">任意</span></label>
+        <textarea id="f_description" placeholder="どんな豆を扱っているか、こだわりなど自由にご記入ください"></textarea>
+      </div>
+      <div class="field">
+        <label>焙煎度合い<span class="hint" style="margin-left:6px;">任意・複数選択可</span></label>
+        <div class="chip-group" data-group="roast">
+          <div class="chip" data-value="浅煎り">浅煎り</div>
+          <div class="chip" data-value="中煎り">中煎り</div>
+          <div class="chip" data-value="深煎り">深煎り</div>
+        </div>
+      </div>
+      <div class="field">
+        <label>香りの系統<span class="hint" style="margin-left:6px;">任意・複数選択可</span></label>
+        <div class="chip-group" data-group="flavor">
+          <div class="chip" data-value="フルーティー系">フルーティー系</div>
+          <div class="chip" data-value="ナッツ・チョコ系">ナッツ・チョコ系</div>
+          <div class="chip" data-value="スパイス系">スパイス系</div>
+        </div>
+        <p class="hint">わからない場合は空欄で構いません。SNSの投稿を参考に、こちらで仮設定いたします。</p>
+      </div>
+      <div class="field">
+        <label>送料無料ライン（円）<span class="hint" style="margin-left:6px;">任意</span></label>
+        <input type="number" id="f_shipping" placeholder="例）3000">
+      </div>
+      <div class="field">
+        <div class="check-row">
+          <input type="checkbox" id="f_subscription">
+          <label for="f_subscription">定期便（サブスク）に対応している</label>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" id="f_gift">
+          <label for="f_gift">ギフト包装に対応している</label>
+        </div>
+        <div class="check-row">
+          <input type="checkbox" id="f_trial">
+          <label for="f_trial">お試しセット・少量パックがある</label>
+        </div>
+      </div>
+      <div class="field">
+        <label>看板商品<span class="hint" style="margin-left:6px;">任意</span></label>
+        <input type="text" id="f_flagship" placeholder="例）エチオピア ナチュラル">
+      </div>
+      <div class="field">
+        <label>発送までの目安<span class="hint" style="margin-left:6px;">任意</span></label>
+        <input type="text" id="f_shippingSpeed" placeholder="例）注文後3日以内に焙煎・発送">
+      </div>
+      <div class="field">
+        <label>焙煎者の顔写真<span class="hint" style="margin-left:6px;">任意</span></label>
+        <input type="file" id="f_roasterPhoto" accept="image/*">
+        <p class="hint">焙煎しているご本人の写真があれば、より親しみが伝わります。</p>
+      </div>
+      <div class="field">
+        <label>焙煎者からのひとこと<span class="hint" style="margin-left:6px;">任意</span></label>
+        <textarea id="f_roasterMessage" placeholder="お客様へのメッセージや、焙煎への想いなど"></textarea>
+      </div>
+      <div class="field">
+        <label>食品衛生法に基づく営業届出<span class="req">必須</span></label>
+        <p class="hint" style="margin-bottom:10px;">
+          2021年の食品衛生法改正により、コーヒー豆の自家焙煎・加工販売には、管轄保健所への「営業届」の提出が義務付けられています。
+          掲載情報は事業者様からの自己申告に基づくものであり、roscolleはその内容を保証するものではありません。
+        </p>
+        <div class="check-row">
+          <input type="checkbox" id="f_notification" required>
+          <label for="f_notification">食品衛生法に基づく営業届出を提出済みです</label>
+        </div>
+      </div>
+      <div class="field">
+        <label>届出番号（受理番号）<span class="hint" style="margin-left:6px;">任意</span></label>
+        <input type="text" id="f_notificationNumber" placeholder="保健所への届出時に発行される受理番号があればご記入ください">
+      </div>
+
+      <button type="submit" class="btn btn-primary form-submit" id="f_submitBtn">この内容で登録する</button>
+      <p class="form-note" id="f_statusText">送信後、内容を確認のうえ担当より折り返しご連絡します。</p>
+    </form>
+
+    <div class="thanks" id="thanks">
+      <div class="check">✓</div>
+      <h3>登録ありがとうございます</h3>
+      <p>内容を確認の上、担当より折り返しご連絡いたします。今しばらくお待ちください。</p>
     </div>
   </div>
 </section>
+
+<!-- Googleフォームへの送信は、画面遷移させないよう非表示のiframe経由で行う -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+<form id="googleForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdBFYiTrE0YFXlyLzMtkhguQeqpmY5YduBaSEyRm8lk3qnQpQ/formResponse"
+      method="POST" target="hidden_iframe" style="display:none;">
+  <input type="text" name="entry.240483704" id="g_name">
+  <input type="text" name="entry.1885995319" id="g_ecUrl">
+  <input type="text" name="entry.1336681207" id="g_sns">
+  <input type="text" name="entry.1840213224" id="g_email">
+  <input type="text" name="entry.1484594104" id="g_photo">
+  <input type="text" name="entry.1813839832" id="g_description">
+  <input type="checkbox" name="entry.627058587" value="浅煎り" id="g_roast_浅煎り">
+  <input type="checkbox" name="entry.627058587" value="中煎り" id="g_roast_中煎り">
+  <input type="checkbox" name="entry.627058587" value="深煎り" id="g_roast_深煎り">
+  <input type="checkbox" name="entry.208973401" value="フルーティー系" id="g_flavor_フルーティー系">
+  <input type="checkbox" name="entry.208973401" value="ナッツ・チョコ系" id="g_flavor_ナッツ・チョコ系">
+  <input type="checkbox" name="entry.208973401" value="スパイス系" id="g_flavor_スパイス系">
+  <input type="text" name="entry.1517437852" id="g_shipping">
+  <input type="checkbox" name="entry.428220457" value="対応している" id="g_subscription">
+  <input type="checkbox" name="entry.140954433" value="対応している" id="g_gift">
+  <input type="checkbox" name="entry.1940567708" value="食品衛生法に基づく営業届出を提出済みです" id="g_notification">
+  <input type="text" name="entry.1334020968" id="g_notificationNumber">
+  <input type="text" name="entry.1766419662" id="g_flagship">
+  <input type="checkbox" name="entry.316428813" value="あります" id="g_trial">
+  <input type="text" name="entry.257901969" id="g_shippingSpeed">
+  <input type="text" name="entry.899327455" id="g_roasterPhoto">
+  <input type="text" name="entry.20383295" id="g_roasterMessage">
+</form>
 
 <footer>
   <div class="wrap">
@@ -567,6 +688,96 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // GASのWebアプリURL（写真アップロード窓口）。レビューツールと同じWebアプリのURLを設定してください。
+  const UPLOAD_ENDPOINT = 'https://script.google.com/macros/s/【ここにWebアプリのURLを貼り付け】/exec';
+
+  document.querySelectorAll('.chip-group').forEach(function (group) {
+    group.querySelectorAll('.chip').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        chip.classList.toggle('active');
+      });
+    });
+  });
+
+  function selectedChipValues(groupName) {
+    const group = document.querySelector('.chip-group[data-group="' + groupName + '"]');
+    return Array.from(group.querySelectorAll('.chip.active')).map(function (c) { return c.dataset.value; });
+  }
+
+  function fileToBase64(file) {
+    return new Promise(function (resolve, reject) {
+      const reader = new FileReader();
+      reader.onload = function () { resolve(reader.result.split(',')[1]); };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  async function uploadPhoto(file) {
+    if (!file) return '';
+    const base64 = await fileToBase64(file);
+    const res = await fetch(UPLOAD_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain' }, // CORSプリフライトを避けるための指定
+      body: JSON.stringify({ base64: base64, mimeType: file.type, filename: file.name }),
+    });
+    const data = await res.json();
+    if (!data.ok) throw new Error(data.error || '写真のアップロードに失敗しました');
+    return data.url;
+  }
+
+  document.getElementById('entryForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const btn = document.getElementById('f_submitBtn');
+    const statusText = document.getElementById('f_statusText');
+    btn.disabled = true;
+
+    try {
+      statusText.textContent = '写真をアップロードしています…';
+      const photoUrl = await uploadPhoto(document.getElementById('f_photo').files[0]);
+      const roasterPhotoFile = document.getElementById('f_roasterPhoto').files[0];
+      const roasterPhotoUrl = roasterPhotoFile ? await uploadPhoto(roasterPhotoFile) : '';
+
+      document.getElementById('g_name').value = document.getElementById('f_name').value;
+      document.getElementById('g_ecUrl').value = document.getElementById('f_ecUrl').value;
+      document.getElementById('g_sns').value = document.getElementById('f_sns').value;
+      document.getElementById('g_email').value = document.getElementById('f_email').value;
+      document.getElementById('g_photo').value = photoUrl;
+      document.getElementById('g_description').value = document.getElementById('f_description').value;
+      document.getElementById('g_shipping').value = document.getElementById('f_shipping').value;
+      document.getElementById('g_notificationNumber').value = document.getElementById('f_notificationNumber').value;
+      document.getElementById('g_flagship').value = document.getElementById('f_flagship').value;
+      document.getElementById('g_shippingSpeed').value = document.getElementById('f_shippingSpeed').value;
+      document.getElementById('g_roasterPhoto').value = roasterPhotoUrl;
+      document.getElementById('g_roasterMessage').value = document.getElementById('f_roasterMessage').value;
+
+      selectedChipValues('roast').forEach(function (v) { document.getElementById('g_roast_' + v).checked = true; });
+      selectedChipValues('flavor').forEach(function (v) { document.getElementById('g_flavor_' + v).checked = true; });
+      document.getElementById('g_subscription').checked = document.getElementById('f_subscription').checked;
+      document.getElementById('g_gift').checked = document.getElementById('f_gift').checked;
+      document.getElementById('g_trial').checked = document.getElementById('f_trial').checked;
+      document.getElementById('g_notification').checked = document.getElementById('f_notification').checked;
+
+      statusText.textContent = '送信しています…';
+      document.getElementById('googleForm').submit();
+
+      setTimeout(function () {
+        document.getElementById('entryForm').style.display = 'none';
+        document.getElementById('thanks').style.display = 'block';
+        document.getElementById('thanks').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 1200);
+
+    } catch (err) {
+      statusText.textContent = 'エラーが発生しました：' + err.message + '（もう一度お試しください）';
+      btn.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>
 
 </body>
 </html>
