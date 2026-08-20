@@ -171,5 +171,37 @@
     "roasterMessage": "おいおいとふ",
     "registeredAt": "2026-08-20",
     "published": false
+  },
+  {
+    "id": "roaster_0006",
+    "name": "テスト焙煎所",
+    "ecUrl": "http://tetetete",
+    "sns": {
+      "type": "instagram",
+      "handle": "@tadasdfa"
+    },
+    "photo": "images/roasters/roaster_0006.png",
+    "description": "",
+    "roastLevel": {
+      "min": 3,
+      "max": 3
+    },
+    "flavorTags": [],
+    "priceRange": {
+      "min": null,
+      "max": null,
+      "unit": "100g"
+    },
+    "shipping": {
+      "freeThreshold": null
+    },
+    "subscription": false,
+    "giftWrapping": false,
+    "flagshipProduct": "",
+    "trialPack": false,
+    "shippingSpeed": "",
+    "roasterPhoto": "",
+    "roasterMessage": "",
+    "registeredAt": "2026-08-20"
   }
 ]
