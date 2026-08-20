@@ -136,6 +136,7 @@
     "shippingSpeed": "3niti",
     "roasterPhoto": "images/roasters/roaster_0004_roaster.png",
     "roasterMessage": "fafafafafafa",
-    "registeredAt": "2026-08-20"
+    "registeredAt": "2026-08-20",
+    "published": false
   }
 ]
