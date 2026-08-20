@@ -904,6 +904,34 @@ button.chip[aria-pressed="true"] {
   min-height: calc(100svh - var(--header-height));
   margin: 0 auto;
   padding: 58px 0 90px;
+  animation: quizFadeIn 0.5s ease both;
+}
+
+.quiz-shell.is-leaving {
+  opacity: 0;
+  transform: translateY(-14px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+@keyframes quizFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quiz-shell {
+    animation: none;
+  }
+
+  .quiz-shell.is-leaving {
+    transition: none;
+  }
 }
 
 .quiz-topbar {

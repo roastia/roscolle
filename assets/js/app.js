@@ -1051,6 +1051,24 @@ async function loadData() {
   }
 }
 
+/**
+ * 診断画面をフェードアウトさせてから callback を実行する（次の設問・結果表示への切り替え用）。
+ * .quiz-shell が見つからない場合や、動きを減らす設定が有効な場合は、待たずに即実行する。
+ */
+function fadeOutQuiz(callback) {
+  const shell = document.querySelector('.quiz-shell');
+  const prefersReducedMotion = window.matchMedia
+    && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!shell || prefersReducedMotion) {
+    callback();
+    return;
+  }
+
+  shell.classList.add('is-leaving');
+  window.setTimeout(callback, 400); // CSS側の .quiz-shell.is-leaving の transition時間と合わせる
+}
+
 function resetQuiz() {
   state.quiz.step = 0;
   state.quiz.answers = {};
@@ -1081,32 +1099,41 @@ function handleAppClick(event) {
     if (state.quiz.transitioning) return; // 選択中の二重クリックを防ぐ
     state.quiz.answers[target.dataset.question] = target.dataset.value;
     state.quiz.transitioning = true;
-    renderRoute({ scroll: false }); // 選択した状態を一瞬見せてから次に進む
+    renderRoute({ scroll: false }); // 選択した状態をいったん見せる
     window.setTimeout(() => {
-      state.quiz.transitioning = false;
-      if (state.quiz.step >= QUESTIONS.length - 1) runDiagnosis();
-      else {
-        state.quiz.step += 1;
-        renderRoute({ scroll: true });
-      }
-    }, 150);
+      fadeOutQuiz(() => {
+        state.quiz.transitioning = false;
+        if (state.quiz.step >= QUESTIONS.length - 1) runDiagnosis();
+        else {
+          state.quiz.step += 1;
+          renderRoute({ scroll: true });
+        }
+      });
+    }, 260);
     return;
   }
 
   if (action === 'quiz-back') {
-    state.quiz.transitioning = false;
-    if (state.quiz.step === 0) window.location.hash = '#/home';
-    else {
-      state.quiz.step -= 1;
-      renderRoute({ scroll: true });
-    }
+    if (state.quiz.transitioning) return;
+    fadeOutQuiz(() => {
+      state.quiz.transitioning = false;
+      if (state.quiz.step === 0) window.location.hash = '#/home';
+      else {
+        state.quiz.step -= 1;
+        renderRoute({ scroll: true });
+      }
+    });
     return;
   }
 
   if (action === 'quiz-skip') {
     if (state.quiz.transitioning) return;
-    delete state.quiz.answers[QUESTIONS[state.quiz.step].id];
-    runDiagnosis();
+    state.quiz.transitioning = true;
+    fadeOutQuiz(() => {
+      state.quiz.transitioning = false;
+      delete state.quiz.answers[QUESTIONS[state.quiz.step].id];
+      runDiagnosis();
+    });
     return;
   }
 
