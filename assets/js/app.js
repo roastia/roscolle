@@ -154,6 +154,7 @@ const state = {
   quiz: {
     step: 0,
     answers: {},
+    transitioning: false,
   },
   results: [],
   resultProfile: null,
@@ -1057,6 +1058,7 @@ async function loadData() {
 function resetQuiz() {
   state.quiz.step = 0;
   state.quiz.answers = {};
+  state.quiz.transitioning = false;
   state.results = [];
   state.resultProfile = null;
   state.resultMeta = null;
@@ -1080,12 +1082,23 @@ function handleAppClick(event) {
   }
 
   if (action === 'quiz-option') {
+    if (state.quiz.transitioning) return; // 選択中の二重クリックを防ぐ
     state.quiz.answers[target.dataset.question] = target.dataset.value;
-    renderRoute({ scroll: false });
+    state.quiz.transitioning = true;
+    renderRoute({ scroll: false }); // 選択した状態を一瞬見せてから次に進む
+    window.setTimeout(() => {
+      state.quiz.transitioning = false;
+      if (state.quiz.step >= QUESTIONS.length - 1) runDiagnosis();
+      else {
+        state.quiz.step += 1;
+        renderRoute({ scroll: true });
+      }
+    }, 300);
     return;
   }
 
   if (action === 'quiz-next') {
+    if (state.quiz.transitioning) return;
     const question = QUESTIONS[state.quiz.step];
     if (!state.quiz.answers[question.id]) return;
     if (state.quiz.step >= QUESTIONS.length - 1) runDiagnosis();
@@ -1097,6 +1110,7 @@ function handleAppClick(event) {
   }
 
   if (action === 'quiz-back') {
+    state.quiz.transitioning = false;
     if (state.quiz.step === 0) window.location.hash = '#/home';
     else {
       state.quiz.step -= 1;
@@ -1106,6 +1120,7 @@ function handleAppClick(event) {
   }
 
   if (action === 'quiz-skip') {
+    if (state.quiz.transitioning) return;
     delete state.quiz.answers[QUESTIONS[state.quiz.step].id];
     runDiagnosis();
     return;
