@@ -17,8 +17,8 @@
   --shadow-soft: 0 12px 34px rgba(0, 0, 0, 0.06);
   --container: 1240px;
   --header-height: 82px;
-  --font-head: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
-  --font-body: "Inter", "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --font-head: "Space Grotesk", "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
 }
 
 * {
@@ -78,8 +78,15 @@ h1,
 h2,
 h3 {
   font-family: var(--font-head);
-  letter-spacing: -0.035em;
-  line-height: 1.18;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+}
+
+p,
+li {
+  overflow-wrap: break-word;
 }
 
 button {
@@ -461,7 +468,8 @@ button.chip[aria-pressed="true"] {
   max-width: 620px;
   margin: 0 0 28px;
   font-size: clamp(48px, 6vw, 86px);
-  letter-spacing: -0.065em;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
 }
 
 .hero h1 span {
