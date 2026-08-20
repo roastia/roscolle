@@ -369,6 +369,7 @@ function roasterCard(roaster, options = {}) {
           <span>${escapeHTML(price)}</span>
         </div>
         <h3>${escapeHTML(name)}</h3>
+        ${roaster.prefecture ? `<p class="roaster-card-prefecture">${escapeHTML(prefectureLabel(roaster.prefecture))}</p>` : ''}
         <p class="roaster-card-description">${escapeHTML(roaster.description)}</p>
         <div class="chips">${renderChips(roaster)}</div>
         <div class="roaster-card-footer">
@@ -477,31 +478,24 @@ function homeTemplate() {
       </div>
     </section>
 
-    <section class="section">
+    <section class="section benefits-section">
       <div class="container">
-        <div class="section-heading">
-          <div>
-            <p class="section-kicker">Two ways to find</p>
-            <h2>迷わず見つける、2つの入口。</h2>
-          </div>
-          <p>好みがまだ言葉になっていない人は診断から。自分で比べたい人は、タグと価格から探せます。</p>
-        </div>
-        <div class="entry-grid">
-          <article class="entry-panel">
-            <span class="entry-number">01 / TASTE QUIZ</span>
-            <div>
-              <h3>質問に答えて見つける</h3>
-              <p>「さっぱり」「チョコっぽい」など、日常の言葉で好みを聞きます。結果には、おすすめする理由も添えます。</p>
-            </div>
-            <a class="text-link" href="#/quiz">診断してみる</a>
+        <div class="benefit-row">
+          <article class="benefit-item">
+            <span class="benefit-icon">${iconSVG('cup')}</span>
+            <div><strong>個人焙煎者との出会い</strong><p>全国のオンライン専業の個人焙煎者だけを厳選して掲載。</p></div>
           </article>
-          <article class="entry-panel">
-            <span class="entry-number">02 / DIRECTORY</span>
-            <div>
-              <h3>一覧を見比べて探す</h3>
-              <p>味の傾向、価格、定期便やギフト対応を見ながら、気になる焙煎所を自分のペースで選べます。</p>
-            </div>
-            <a class="text-link" href="#/list">焙煎所一覧へ</a>
+          <article class="benefit-item">
+            <span class="benefit-icon">${iconSVG('spark')}</span>
+            <div><strong>あなたに合う一杯がわかる</strong><p>味の好み診断で、あなたにぴったりの焙煎所をご提案します。</p></div>
+          </article>
+          <article class="benefit-item">
+            <span class="benefit-icon">${iconSVG('cup')}</span>
+            <div><strong>お気に入りが見つかる・続く</strong><p>気に入った豆を、いつでもオンラインでリピートできます。</p></div>
+          </article>
+          <article class="benefit-item">
+            <span class="benefit-icon">${iconSVG('gift')}</span>
+            <div><strong>小さな焙煎者を応援できる</strong><p>一杯のコーヒーが、個人焙煎者の日々の仕事や挑戦の力になります。</p></div>
           </article>
         </div>
       </div>
@@ -522,38 +516,37 @@ function homeTemplate() {
 
     <section class="section">
       <div class="container">
-        <div class="taste-panel">
-          <p class="section-kicker">Browse by taste</p>
-          <h2>いま飲みたい味から、気軽に探す。</h2>
-          <p>細かな産地や精製方法を知らなくても大丈夫。近いイメージを選ぶと、その味を得意とする焙煎所に絞り込みます。</p>
-          <div class="chips">
-            <button class="chip" type="button" data-action="quick-filter" data-filter-type="roast" data-filter-value="1">軽やか・浅煎り</button>
-            <button class="chip" type="button" data-action="quick-filter" data-filter-type="flavor" data-filter-value="fruity">果物のような明るさ</button>
-            <button class="chip" type="button" data-action="quick-filter" data-filter-type="flavor" data-filter-value="nutty_choco">チョコ・ナッツの甘さ</button>
-            <button class="chip" type="button" data-action="quick-filter" data-filter-type="roast" data-filter-value="5">しっかり・深煎り</button>
-            <button class="chip" type="button" data-action="quick-filter" data-filter-type="feature" data-filter-value="trialPack">少量から試したい</button>
-            <button class="chip" type="button" data-action="quick-filter" data-filter-type="feature" data-filter-value="giftWrapping">贈り物を探したい</button>
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Browse by taste</p>
+            <h2>人気の味わいタグから探す</h2>
           </div>
+        </div>
+        <div class="tag-cloud">
+          ${Object.entries(ROAST_LABELS).map(([value, label]) => `<button class="chip" type="button" data-action="quick-filter" data-filter-type="roast" data-filter-value="${escapeHTML(value)}">${escapeHTML(label)}</button>`).join('')}
+          ${Object.entries(FLAVOR_LABELS).map(([value, label]) => `<button class="chip" type="button" data-action="quick-filter" data-filter-type="flavor" data-filter-value="${escapeHTML(value)}">${escapeHTML(label)}</button>`).join('')}
+          <button class="chip" type="button" data-action="quick-filter" data-filter-type="feature" data-filter-value="trialPack">少量から試したい</button>
+          <button class="chip" type="button" data-action="quick-filter" data-filter-type="feature" data-filter-value="giftWrapping">贈り物を探したい</button>
+          <button class="chip" type="button" data-action="quick-filter" data-filter-type="feature" data-filter-value="subscription">定期便がほしい</button>
         </div>
       </div>
     </section>
 
     <section class="section" id="about">
       <div class="container">
-        <div class="about-grid">
-          <div>
+        <div class="bottom-grid">
+          <article class="bottom-card">
+            <p class="section-kicker">Taste quiz</p>
+            <h2>味の好み診断</h2>
+            <p>いくつかの質問に答えるだけで、あなたにぴったりの焙煎所をご提案します。</p>
+            <a class="btn btn--primary" href="#/quiz">診断をはじめる <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="bottom-card">
             <p class="section-kicker">About roscolle</p>
-            <h2>顔の見える一杯を、いつもの選択肢に。</h2>
-          </div>
-          <div class="about-copy">
-            <p>roscolleは、全国の小さな自家焙煎所を集めたポータルサイトです。一度きりの発見で終わらず、気に入った店をオンラインの「行きつけ」にできる場所を目指しています。</p>
-            <p>購入はそれぞれの公式ECサイトで行います。ロスコレは店と出会う入口に徹し、焙煎者がつくる商品の魅力と、その人らしさを丁寧に紹介します。</p>
-            <div class="about-points">
-              <div class="about-point"><strong>診断で出会う</strong><span>専門用語なしで、好みに近い店をご案内</span></div>
-              <div class="about-point"><strong>自分で比べる</strong><span>タグ・価格・サービスから自由に検索</span></div>
-              <div class="about-point"><strong>公式店で買う</strong><span>気になる店のECサイトへ直接アクセス</span></div>
-            </div>
-          </div>
+            <h2>ロスコレについて</h2>
+            <p>ロスコレは、オンラインで頑張る個人焙煎者を応援し、コーヒー好きの「行きつけ」との出会いをつくる場所です。購入はそれぞれの公式ECサイトで行います。</p>
+            <a class="text-link" href="#/home?section=about" data-scroll-about>詳しく見る <span aria-hidden="true">→</span></a>
+          </article>
         </div>
       </div>
     </section>`;
@@ -1299,6 +1292,14 @@ function bindGlobalEvents() {
     event.preventDefault();
     document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     closeMenu();
+  });
+
+  document.querySelector('[data-header-search]')?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const value = document.querySelector('#header-search-input').value.trim();
+    state.filters.search = value;
+    window.location.hash = '#/list';
+    renderRoute({ scroll: true });
   });
 
   app.addEventListener('click', handleAppClick);

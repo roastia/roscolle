@@ -28,10 +28,16 @@
       </a>
 
       <nav class="desktop-nav" aria-label="メインナビゲーション">
-        <a href="#/quiz" data-nav="quiz">味の好み診断</a>
         <a href="#/list" data-nav="list">焙煎所を探す</a>
+        <a href="#/quiz" data-nav="quiz">味の好み診断</a>
         <a href="#/home?section=about" data-scroll-about>ロスコレについて</a>
       </nav>
+
+      <form class="header-search" role="search" aria-label="焙煎所を検索" data-header-search>
+        <label class="sr-only" for="header-search-input">焙煎所を検索</label>
+        <input type="search" id="header-search-input" placeholder="焙煎所を検索">
+        <button type="submit" aria-label="検索する"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/><line x1="14" y1="14" x2="18.5" y2="18.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </form>
 
       <div class="header-actions">
         <a class="header-recruit" href="recruit.html">焙煎者の方へ</a>
@@ -44,8 +50,8 @@
     </div>
 
     <nav class="mobile-menu" id="mobile-menu" aria-label="モバイルナビゲーション" hidden data-mobile-menu>
-      <a href="#/quiz">味の好み診断</a>
       <a href="#/list">焙煎所を探す</a>
+      <a href="#/quiz">味の好み診断</a>
       <a href="#/home?section=about" data-scroll-about>ロスコレについて</a>
       <a href="recruit.html">焙煎者の方へ</a>
     </nav>
