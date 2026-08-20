@@ -483,19 +483,19 @@ function homeTemplate() {
         <div class="benefit-row">
           <article class="benefit-item">
             <span class="benefit-icon">${iconSVG('cup')}</span>
-            <div><strong>個人焙煎者との出会い</strong><p>全国のオンライン専業の個人焙煎者だけを厳選して掲載。</p></div>
+            <div><strong>個人焙煎者との出会い</strong><p>全国のオンライン専業の個人焙煎者だけを厳選して掲載。実店舗を持たず、コーヒーの味づくりに集中している小さな焙煎所を中心に集めているので、大きなチェーン店では出会えない個性的な一杯にたどり着けます。</p></div>
           </article>
           <article class="benefit-item">
             <span class="benefit-icon">${iconSVG('spark')}</span>
-            <div><strong>あなたに合う一杯がわかる</strong><p>味の好み診断で、あなたにぴったりの焙煎所をご提案します。</p></div>
+            <div><strong>あなたに合う一杯がわかる</strong><p>味の好み診断で、あなたにぴったりの焙煎所をご提案します。焙煎度合いや香りの好みなど、専門用語を使わない4つの質問に答えるだけで、今の気分に近い一杯を扱う焙煎所を選び出し、選んだ理由もあわせてお伝えします。</p></div>
           </article>
           <article class="benefit-item">
             <span class="benefit-icon">${iconSVG('cup')}</span>
-            <div><strong>お気に入りが見つかる・続く</strong><p>気に入った豆を、いつでもオンラインでリピートできます。</p></div>
+            <div><strong>お気に入りが見つかる・続く</strong><p>気に入った豆を、いつでもオンラインでリピートできます。一度出会った焙煎所は公式ECサイトへ直接アクセスできるので、次に買いたくなったときも迷わず、いつもの一杯として長く付き合っていけます。</p></div>
           </article>
           <article class="benefit-item">
             <span class="benefit-icon">${iconSVG('gift')}</span>
-            <div><strong>小さな焙煎者を応援できる</strong><p>一杯のコーヒーが、個人焙煎者の日々の仕事や挑戦の力になります。</p></div>
+            <div><strong>小さな焙煎者を応援できる</strong><p>一杯のコーヒーが、個人焙煎者の日々の仕事や挑戦の力になります。あなたが選ぶ一杯は、発信やイベント出店に十分な時間をかけられない小さな焙煎所にとって、新しいお客様と出会う大切なきっかけになります。</p></div>
           </article>
         </div>
       </div>
