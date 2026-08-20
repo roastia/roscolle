@@ -1,24 +1,24 @@
 :root {
-  --bg: #fbfaf7;
-  --text: #211c18;
-  --muted: #716a63;
-  --muted-2: #948d85;
-  --line: #ded9d1;
-  --line-dark: #bdb4a9;
-  --surface: #f3f0e9;
-  --surface-2: #ebe6dc;
-  --black: #201b17;
+  --bg: #ffffff;
+  --text: #161616;
+  --muted: #6b6b6b;
+  --muted-2: #9a9a9a;
+  --line: #e3e3e3;
+  --line-dark: #b8b8b8;
+  --surface: #f5f5f5;
+  --surface-2: #ececec;
+  --black: #111111;
   --white: #ffffff;
-  --accent: #c94f24;
-  --accent-dark: #bd3f19;
-  --coffee: #3e2b22;
-  --sand: #e8dfcf;
+  --accent: #111111;
+  --accent-dark: #000000;
+  --coffee: #1a1a1a;
+  --sand: #efefef;
   --danger: #9d1c1c;
   --radius-xs: 999px;
   --radius-sm: 18px;
   --radius-md: 24px;
   --radius-lg: 34px;
-  --shadow-soft: 0 20px 60px rgba(62, 43, 34, 0.11);
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.1);
   --container: 1320px;
   --header-height: 76px;
   --font-head: "Space Grotesk", "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Helvetica Neue", Arial, sans-serif;
@@ -517,7 +517,7 @@ button.chip[aria-pressed="true"] {
   grid-template-columns: minmax(440px, 0.96fr) minmax(500px, 1.04fr);
   gap: clamp(24px, 3vw, 52px);
   padding: 42px max(32px, calc((100vw - var(--container)) / 2 + 20px)) 54px;
-  background: linear-gradient(110deg, #f7f3eb 0%, #fbfaf7 58%, #eee7db 100%);
+  background: linear-gradient(110deg, #f7f7f7 0%, #ffffff 58%, #ececec 100%);
   border-bottom: 1px solid var(--line);
 }
 
@@ -656,7 +656,7 @@ button.chip[aria-pressed="true"] {
 
 .entry-panel:hover {
   transform: translateY(-4px);
-  background: #f7f3ec;
+  background: var(--surface-2);
   box-shadow: var(--shadow-soft);
 }
 
