@@ -493,12 +493,21 @@ button.chip[aria-pressed="true"] {
   justify-content: center;
 }
 
+.hero .eyebrow {
+  color: var(--accent);
+  font-size: 13px;
+}
+
+.hero .eyebrow::before {
+  background: var(--accent);
+}
+
 .hero h1 {
   max-width: 620px;
   margin: 0 0 28px;
-  font-size: clamp(48px, 4.45vw, 66px);
-  letter-spacing: -0.045em;
-  line-height: 1.22;
+  font-size: clamp(44px, 4vw, 62px);
+  letter-spacing: -0.035em;
+  line-height: 1.28;
 }
 
 .hero h1 span {

@@ -438,9 +438,9 @@ function homeTemplate() {
   return `
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">Find your everyday roaster</p>
-        <h1><span>オンラインにも、</span><span>行きつけができる。</span></h1>
-        <p class="hero-lead">いくつかの質問に答えるだけで、今のあなたに合う小さな焙煎所をご案内します。専門用語は必要ありません。</p>
+        <p class="eyebrow">自家焙煎珈琲豆のポータルサイト</p>
+        <h1><span>自家焙煎珈琲豆にも、</span><span>オンラインの行きつけを。</span></h1>
+        <p class="hero-lead">いくつかの質問に答えるだけで、今のあなたに合う自家焙煎珈琲豆のお店をご案内します。専門用語は必要ありません。</p>
         <div class="btn-row">
           <a class="btn btn--primary" href="#/quiz">味の好み診断をはじめる</a>
           <a class="btn" href="#/list">一覧から探す</a>
