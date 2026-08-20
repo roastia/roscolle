@@ -105,7 +105,7 @@
   {
     "id": "roaster_0004",
     "name": "テスト焙煎所",
-    "ecUrl": "http://test",
+    "ecUrl": "http://testtesttest",
     "sns": {
       "type": "instagram",
       "handle": "@testaka"
@@ -123,8 +123,8 @@
     ],
     "priceRange": {
       "min": null,
-      "max": null,
-      "unit": "100g"
+      "unit": "100g",
+      "max": null
     },
     "shipping": {
       "freeThreshold": 2500
