@@ -104,5 +104,40 @@
     "shippingSpeed": "毎週火曜・金曜に焙煎し、翌日発送",
     "roasterMessage": "",
     "registeredAt": "2026-08-10"
+  },
+  {
+    "id": "roaster_0004",
+    "name": "テスト焙煎所",
+    "ecUrl": "http://test",
+    "prefecture": "北海道",
+    "sns": {
+      "type": "instagram",
+      "handle": "@testaka"
+    },
+    "photo": "images/roasters/roaster_0004.png",
+    "description": "fafafa",
+    "roastLevel": {
+      "min": 1,
+      "max": 4
+    },
+    "flavorTags": [
+      "spicy"
+    ],
+    "priceRange": {
+      "min": 300,
+      "max": 5000,
+      "unit": "100g"
+    },
+    "shipping": {
+      "freeThreshold": 2000
+    },
+    "subscription": true,
+    "giftWrapping": true,
+    "flagshipProduct": "",
+    "trialPack": true,
+    "shippingSpeed": "7日いない",
+    "roasterPhoto": "images/roasters/roaster_0004_roaster.png",
+    "roasterMessage": "fafafafafa",
+    "registeredAt": "2026-08-20"
   }
 ]
