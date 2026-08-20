@@ -236,5 +236,37 @@
     "roasterMessage": "",
     "registeredAt": "2026-08-20",
     "published": false
+  },
+  {
+    "id": "roaster_0008",
+    "name": "テスト焙煎所",
+    "ecUrl": "http://test",
+    "sns": {
+      "type": "instagram",
+      "handle": "@testaka"
+    },
+    "photo": "images/roasters/roaster_0008.png",
+    "description": "",
+    "roastLevel": {
+      "min": 3,
+      "max": 3
+    },
+    "flavorTags": [],
+    "priceRange": {
+      "min": null,
+      "max": null,
+      "unit": "100g"
+    },
+    "shipping": {
+      "freeThreshold": null
+    },
+    "subscription": false,
+    "giftWrapping": false,
+    "flagshipProduct": "",
+    "trialPack": false,
+    "shippingSpeed": "",
+    "roasterPhoto": "",
+    "roasterMessage": "",
+    "registeredAt": "2026-08-20"
   }
 ]
