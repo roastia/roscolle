@@ -1130,17 +1130,14 @@ function handleAppClick(event) {
     if (state.quiz.transitioning) return; // 選択中の二重クリックを防ぐ
     state.quiz.answers[target.dataset.question] = target.dataset.value;
     state.quiz.transitioning = true;
-    renderRoute({ scroll: false }); // 選択した状態をいったん見せる
-    window.setTimeout(() => {
-      fadeOutQuiz(() => {
-        state.quiz.transitioning = false;
-        if (state.quiz.step >= QUESTIONS.length - 1) runDiagnosis();
-        else {
-          state.quiz.step += 1;
-          renderRoute({ scroll: true });
-        }
-      });
-    }, 260);
+    fadeOutQuiz(() => {
+      state.quiz.transitioning = false;
+      if (state.quiz.step >= QUESTIONS.length - 1) runDiagnosis();
+      else {
+        state.quiz.step += 1;
+        renderRoute({ scroll: true });
+      }
+    });
     return;
   }
 
