@@ -315,6 +315,7 @@ h1, h2, h3 {
 }
 .field input:focus, .field textarea:focus { outline: 2px solid var(--orange); outline-offset: 1px; border-color: transparent; background: var(--white); }
 .field textarea { min-height: 105px; resize: vertical; }
+.row-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 .field input[type="file"] { width: 100%; padding: 15px; color: var(--ink-soft); background: var(--paper); border: 1px dashed var(--line); border-radius: 10px; font-size: 12px; }
 .hint { margin: 7px 0 0; color: var(--muted); font-size: 11px; }
 .chip-group { display: flex; flex-wrap: wrap; gap: 8px; }

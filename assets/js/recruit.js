@@ -70,6 +70,8 @@ entryForm.addEventListener('submit', async (event) => {
       g_prefecture: 'f_prefecture',
       g_description: 'f_description',
       g_shipping: 'f_shipping',
+      g_priceMin: 'f_priceMin',
+      g_priceMax: 'f_priceMax',
       g_notificationNumber: 'f_notificationNumber',
       g_flagship: 'f_flagship',
       g_shippingSpeed: 'f_shippingSpeed',
