@@ -202,7 +202,8 @@
     "shippingSpeed": "",
     "roasterPhoto": "",
     "roasterMessage": "",
-    "registeredAt": "2026-08-20"
+    "registeredAt": "2026-08-20",
+    "published": false
   },
   {
     "id": "roaster_0007",
