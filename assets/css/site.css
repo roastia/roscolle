@@ -1125,14 +1125,23 @@ button.chip[aria-pressed="true"] {
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   background: var(--white);
+  color: var(--text);
   text-align: center;
   cursor: pointer;
-  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
-.quiz-option:hover {
-  border-color: var(--line-dark);
+.quiz-option:hover,
+.quiz-option:focus-visible {
+  border-color: var(--black);
+  background: var(--black);
+  color: var(--white);
   transform: translateY(-3px);
+}
+
+.quiz-option:hover span,
+.quiz-option:focus-visible span {
+  color: #d2d2d2;
 }
 
 .quiz-option[aria-pressed="true"] {
