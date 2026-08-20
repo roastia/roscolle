@@ -155,9 +155,9 @@
     },
     "flavorTags": [],
     "priceRange": {
-      "min": null,
       "max": null,
-      "unit": "100g"
+      "unit": "100g",
+      "min": null
     },
     "shipping": {
       "freeThreshold": 2000
@@ -168,7 +168,7 @@
     "trialPack": true,
     "shippingSpeed": "",
     "roasterPhoto": "images/roasters/roaster_0005_roaster.png",
-    "roasterMessage": "おいおいとふぁふぁふぁ",
+    "roasterMessage": "おいおいとふぁふぁふぁふぁふぁ",
     "registeredAt": "2026-08-20"
   }
 ]
