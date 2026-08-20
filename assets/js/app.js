@@ -677,11 +677,6 @@ function runDiagnosis() {
   state.results = scored.slice(0, Math.min(3, scored.length));
   state.resultProfile = profile;
   state.resultMeta = { exactCount: scored.filter((item) => item.exact).length };
-  try {
-    window.sessionStorage.setItem('roscolleQuizAnswers', JSON.stringify(state.quiz.answers));
-  } catch {
-    // Storage may be unavailable in privacy-restricted contexts; diagnosis still works.
-  }
   window.location.hash = '#/results';
 }
 
@@ -1107,11 +1102,6 @@ function resetQuiz() {
   state.results = [];
   state.resultProfile = null;
   state.resultMeta = null;
-  try {
-    window.sessionStorage.removeItem('roscolleQuizAnswers');
-  } catch {
-    // Storage is optional.
-  }
   if (getRoute().name === 'quiz') renderRoute({ scroll: true });
   else window.location.hash = '#/quiz';
 }
@@ -1254,18 +1244,16 @@ function handleImageError(event) {
   event.target.src = PLACEHOLDER_IMAGE;
 }
 
-function restoreQuizState() {
-  try {
-    const saved = JSON.parse(window.sessionStorage.getItem('roscolleQuizAnswers') || '{}');
-    if (saved && typeof saved === 'object') state.quiz.answers = saved;
-  } catch {
-    // Storage is optional; ignore access errors.
-  }
-}
 
 function bindGlobalEvents() {
   window.addEventListener('hashchange', () => {
     closeMenu();
+    if (getRoute().name === 'quiz') {
+      // 診断画面に入るたびに、前回の回答を持ち越さずまっさらな状態から始める。
+      state.quiz.step = 0;
+      state.quiz.answers = {};
+      state.quiz.transitioning = false;
+    }
     renderRoute({ scroll: true });
   });
 
@@ -1308,7 +1296,6 @@ function bindGlobalEvents() {
 
 function init() {
   if (!window.location.hash) window.history.replaceState(null, '', '#/home');
-  restoreQuizState();
   bindGlobalEvents();
   loadData();
 }
