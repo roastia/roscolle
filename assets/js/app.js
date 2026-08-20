@@ -544,7 +544,6 @@ function quizTemplate() {
   const question = QUESTIONS[step];
   const selected = state.quiz.answers[question.id] || '';
   const progress = ((step + 1) / QUESTIONS.length) * 100;
-  const isLast = step === QUESTIONS.length - 1;
 
   return `
     <section class="quiz-shell">
@@ -569,10 +568,7 @@ function quizTemplate() {
           </button>`).join('')}
       </div>
 
-      <div class="quiz-controls">
-        <button class="btn btn--primary" type="button" data-action="quiz-next" ${selected ? '' : 'disabled'}>${isLast ? '診断結果を見る' : '次へ'}</button>
-        ${question.optional ? '<button class="skip-button" type="button" data-action="quiz-skip">今回は選ばずに結果を見る</button>' : ''}
-      </div>
+      ${question.optional ? '<div class="quiz-controls"><button class="skip-button" type="button" data-action="quiz-skip">今回は選ばずに結果を見る</button></div>' : ''}
     </section>`;
 }
 
@@ -1093,19 +1089,7 @@ function handleAppClick(event) {
         state.quiz.step += 1;
         renderRoute({ scroll: true });
       }
-    }, 300);
-    return;
-  }
-
-  if (action === 'quiz-next') {
-    if (state.quiz.transitioning) return;
-    const question = QUESTIONS[state.quiz.step];
-    if (!state.quiz.answers[question.id]) return;
-    if (state.quiz.step >= QUESTIONS.length - 1) runDiagnosis();
-    else {
-      state.quiz.step += 1;
-      renderRoute({ scroll: true });
-    }
+    }, 150);
     return;
   }
 
