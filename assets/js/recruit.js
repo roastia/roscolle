@@ -9,6 +9,17 @@ document.querySelectorAll('.chip-group').forEach((group) => {
   });
 });
 
+const hasShippingCheckbox = document.querySelector('#f_hasShipping');
+const shippingField = document.querySelector('#f_shippingField');
+if (hasShippingCheckbox && shippingField) {
+  hasShippingCheckbox.addEventListener('change', () => {
+    shippingField.hidden = !hasShippingCheckbox.checked;
+    if (!hasShippingCheckbox.checked) {
+      document.querySelector('#f_shipping').value = '';
+    }
+  });
+}
+
 function selectedChipValues(groupName) {
   const group = document.querySelector(`.chip-group[data-group="${groupName}"]`);
   return Array.from(group.querySelectorAll('.chip.active')).map((chip) => chip.dataset.value);
