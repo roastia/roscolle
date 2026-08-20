@@ -109,7 +109,7 @@
     "id": "roaster_0004",
     "name": "テスト焙煎所",
     "ecUrl": "http://test",
-    "prefecture": "北海道",
+    "prefecture": "岩手",
     "sns": {
       "type": "instagram",
       "handle": "@testaka"
@@ -137,7 +137,7 @@
     "trialPack": true,
     "shippingSpeed": "7日いない",
     "roasterPhoto": "images/roasters/roaster_0004_roaster.png",
-    "roasterMessage": "fafafafafa",
+    "roasterMessage": "fdddddd",
     "registeredAt": "2026-08-20"
   }
 ]
