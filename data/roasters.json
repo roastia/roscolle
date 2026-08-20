@@ -169,6 +169,7 @@
     "shippingSpeed": "",
     "roasterPhoto": "images/roasters/roaster_0005_roaster.png",
     "roasterMessage": "おいおいとふ",
-    "registeredAt": "2026-08-20"
+    "registeredAt": "2026-08-20",
+    "published": false
   }
 ]
