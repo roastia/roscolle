@@ -56,6 +56,7 @@ entryForm.addEventListener('submit', async (event) => {
       g_ecUrl: 'f_ecUrl',
       g_sns: 'f_sns',
       g_email: 'f_email',
+      g_prefecture: 'f_prefecture',
       g_description: 'f_description',
       g_shipping: 'f_shipping',
       g_notificationNumber: 'f_notificationNumber',

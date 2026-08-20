@@ -3,6 +3,7 @@
     "id": "roaster_0001",
     "name": "ROSCOLLE DEMO 01｜余白航路焙煎所",
     "ecUrl": "https://example.com/roscolle-demo/yoha-kouro",
+    "prefecture": "東京",
     "sns": {
       "type": "instagram",
       "handle": "@roscolle_demo_roaster_0001"
@@ -37,6 +38,7 @@
     "id": "roaster_0002",
     "name": "ROSCOLLE DEMO 02｜灯点珈琲製作室",
     "ecUrl": "https://example.com/roscolle-demo/touten",
+    "prefecture": "大阪",
     "sns": {
       "type": "instagram",
       "handle": "@roscolle_demo_roaster_0002"
@@ -71,6 +73,7 @@
     "id": "roaster_0003",
     "name": "ROSCOLLE DEMO 03｜NOKT 17 ROAST WORKS",
     "ecUrl": "https://example.com/roscolle-demo/nokt17",
+    "prefecture": "福岡",
     "sns": {
       "type": "x",
       "handle": "@roscolle_demo_roaster_0003"

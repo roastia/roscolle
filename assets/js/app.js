@@ -22,6 +22,24 @@ const FEATURE_LABELS = {
   trialPack: 'お試しあり',
 };
 
+// Googleフォームの「都道府県」選択肢と同じ順番・同じ表記（末尾の都道府県は付けない）
+const PREFECTURES = [
+  '北海道', '青森', '岩手', '宮城', '秋田', '山形', '福島',
+  '茨城', '栃木', '群馬', '埼玉', '千葉', '東京', '神奈川',
+  '新潟', '富山', '石川', '福井', '山梨', '長野', '岐阜', '静岡', '愛知', '三重',
+  '滋賀', '京都', '大阪', '兵庫', '奈良', '和歌山',
+  '鳥取', '島根', '岡山', '広島', '山口',
+  '徳島', '香川', '愛媛', '高知',
+  '福岡', '佐賀', '長崎', '熊本', '大分', '宮崎', '鹿児島', '沖縄',
+];
+
+const PREFECTURE_SUFFIX_MAP = { 東京: '都', 大阪: '府', 京都: '府' };
+function prefectureLabel(name) {
+  if (!name) return '';
+  if (name === '北海道') return name;
+  return name + (PREFECTURE_SUFFIX_MAP[name] || '県');
+}
+
 const QUESTIONS = [
   {
     id: 'drink',
@@ -163,6 +181,7 @@ const state = {
     roasts: new Set(),
     flavors: new Set(),
     features: new Set(),
+    prefecture: '',
     search: '',
     sort: 'newest',
     panelOpen: false,
@@ -248,6 +267,7 @@ function normalizeRoaster(item) {
     shippingSpeed: typeof item?.shippingSpeed === 'string' ? item.shippingSpeed : '',
     roasterMessage: typeof item?.roasterMessage === 'string' ? item.roasterMessage : '',
     registeredAt: typeof item?.registeredAt === 'string' ? item.registeredAt : '',
+    prefecture: typeof item?.prefecture === 'string' && PREFECTURES.includes(item.prefecture) ? item.prefecture : '',
     published: item?.published !== false,
   };
 }
@@ -736,6 +756,7 @@ function resetFilters() {
   state.filters.roasts.clear();
   state.filters.flavors.clear();
   state.filters.features.clear();
+  state.filters.prefecture = '';
   state.filters.search = '';
   state.filters.sort = 'newest';
 }
@@ -776,6 +797,10 @@ function filteredRoasters() {
       if (!matchesFeatures) return false;
     }
 
+    if (state.filters.prefecture) {
+      if (roaster.prefecture !== state.filters.prefecture) return false;
+    }
+
     return true;
   });
 
@@ -798,7 +823,8 @@ function directoryTemplate() {
   const roasters = filteredRoasters();
   const isDesktop = window.matchMedia('(min-width: 1021px)').matches;
   const panelOpen = isDesktop || state.filters.panelOpen;
-  const activeCount = state.filters.roasts.size + state.filters.flavors.size + state.filters.features.size;
+  const activeCount = state.filters.roasts.size + state.filters.flavors.size + state.filters.features.size
+    + (state.filters.prefecture ? 1 : 0);
 
   return `
     <section class="page-hero">
@@ -815,6 +841,17 @@ function directoryTemplate() {
         <details class="filter-panel" ${panelOpen ? 'open' : ''}>
           <summary>絞り込み ${activeCount ? `<span class="chip chip--dark">${activeCount}</span>` : ''}</summary>
           <div class="filter-content">
+            <div class="filter-group">
+              <span class="filter-title">都道府県</span>
+              <label class="search-field">
+                <span class="sr-only">都道府県で絞り込み</span>
+                <input type="text" list="prefecture-options" value="${escapeHTML(state.filters.prefecture)}" placeholder="都道府県で検索・選択" data-directory-prefecture>
+              </label>
+              <datalist id="prefecture-options">
+                ${PREFECTURES.map((name) => `<option value="${escapeHTML(name)}">${escapeHTML(prefectureLabel(name))}</option>`).join('')}
+              </datalist>
+              ${state.filters.prefecture ? `<button class="filter-clear" type="button" data-action="clear-prefecture">「${escapeHTML(prefectureLabel(state.filters.prefecture))}」を解除</button>` : ''}
+            </div>
             <div class="filter-group">
               <span class="filter-title">焙煎の深さ</span>
               <div class="chips">
@@ -924,6 +961,7 @@ function detailTemplate(roaster) {
   const storyExists = Boolean(roaster.roasterPhoto || roaster.roasterMessage);
 
   const infoRows = [
+    roaster.prefecture ? infoRow('所在地', prefectureLabel(roaster.prefecture)) : '',
     infoRow('価格帯の目安', priceLabel(roaster)),
     roaster.shipping.freeThreshold
       ? infoRow('送料無料ライン', `${formatCurrency(roaster.shipping.freeThreshold)}以上`)
@@ -1160,6 +1198,12 @@ function handleAppClick(event) {
     return;
   }
 
+  if (action === 'clear-prefecture') {
+    state.filters.prefecture = '';
+    renderRoute({ scroll: false });
+    return;
+  }
+
   if (action === 'quick-filter') {
     resetFilters();
     const type = target.dataset.filterType;
@@ -1172,18 +1216,34 @@ function handleAppClick(event) {
 
 let searchTimer = null;
 function handleAppInput(event) {
-  if (!event.target.matches('[data-directory-search]')) return;
-  state.filters.search = event.target.value;
-  window.clearTimeout(searchTimer);
-  searchTimer = window.setTimeout(() => {
-    const value = state.filters.search;
-    renderRoute({ scroll: false });
-    const input = document.querySelector('[data-directory-search]');
-    if (input) {
-      input.focus();
-      input.setSelectionRange(value.length, value.length);
+  if (event.target.matches('[data-directory-search]')) {
+    state.filters.search = event.target.value;
+    window.clearTimeout(searchTimer);
+    searchTimer = window.setTimeout(() => {
+      const value = state.filters.search;
+      renderRoute({ scroll: false });
+      const input = document.querySelector('[data-directory-search]');
+      if (input) {
+        input.focus();
+        input.setSelectionRange(value.length, value.length);
+      }
+    }, 180);
+    return;
+  }
+
+  if (event.target.matches('[data-directory-prefecture]')) {
+    const typed = event.target.value.trim();
+    // datalistの選択肢と完全一致した時点で確定として絞り込む（入力途中の再描画でフォーカスが崩れるのを防ぐ）
+    if (typed === '' || PREFECTURES.includes(typed)) {
+      state.filters.prefecture = typed;
+      renderRoute({ scroll: false });
+      const input = document.querySelector('[data-directory-prefecture]');
+      if (input) {
+        input.focus();
+        input.setSelectionRange(typed.length, typed.length);
+      }
     }
-  }, 180);
+  }
 }
 
 function handleAppChange(event) {
